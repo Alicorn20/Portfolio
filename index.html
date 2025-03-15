@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white min-h-screen">
+  <nav class="fixed w-full bg-white/80 backdrop-blur-md z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-4">
+          <div class="font-['Pacifico'] text-2xl text-primary">
+            <a href="#" class="cursor-pointer">Portfolio</a>
+          </div>
+          <!-- Theme and Effect Toggles -->
+          <button id="themeToggle" class="toggle-btn"><i class="ri-sun-line ri-lg"></i></button>
+          <button id="snowToggle" class="toggle-btn"><i class="ri-snowy-line ri-lg"></i></button>
+          <button id="rainToggle" class="toggle-btn"><i class="ri-rainy-line ri-lg"></i></button>
+          <button id="flowerToggle" class="toggle-btn"><i class="ri-flower-line ri-lg"></i></button>
+        </div>
+        <!-- Navigation Links -->
+        <div class="flex space-x-8">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#hobbies" class="nav-link">Hobbies</a>
+          <a href="#development" class="nav-link">Development</a>
+          <a href="#languages" class="nav-link">Languages</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main class="pt-16">
+    <!-- Sections -->
+    <section id="home" class="min-h-screen">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="section flex items-center mb-32">
+          <div class="w-1/2 pr-12">
+            <img src="https://public.readdy.ai/ai/img_res/32cd75172b5457dc36ecaec26cf2ab70.jpg"
+              class="rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300"
+              alt="Developer portrait">
+          </div>
+          <div class="w-1/2">
+            <h1 class="text-4xl font-bold mb-6">Hello, I'm James Anderson</h1>
+            <p class="text-lg text-gray-600 mb-8">A passionate full-stack developer with 5 years of experience in creating modern web applications. I specialize in React, Node.js, and cloud technologies.</p>
+            <a href="#contact" class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-primary/90 transition-colors cursor-pointer inline-block">Get in touch</a>
+          </div>
+        </div>
+        <div class="section flex items-center mb-32">
+          <div class="w-1/2 pr-12">
+            <h2 class="text-3xl font-bold mb-6">My Journey</h2>
+            <p class="text-lg text-gray-600 mb-8">Starting from a curious computer science student to becoming a professional developer, my journey has been filled with continuous learning and growth. I've worked with startups and enterprise companies, building scalable solutions.</p>
+          </div>
+          <div class="w-1/2">
+            <img src="https://public.readdy.ai/ai/img_res/e896cf31d2d15cf1d62e451679e641c9.jpg"
+              class="rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300"
+              alt="Workspace">
+          </div>
+        </div>
+        <div class="section flex items-center">
+          <div class="w-1/2 pr-12">
+            <img src="https://public.readdy.ai/ai/img_res/b150f2347cf0cc9bb732be1535b2724a.jpg"
+              class="rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300"
+              alt="Team collaboration">
+          </div>
+          <div class="w-1/2">
+            <h2 class="text-3xl font-bold mb-6">What I Do</h2>
+            <p class="text-lg text-gray-600 mb-8">I create elegant solutions to complex problems. My focus is on writing clean, maintainable code and building user-friendly interfaces that provide great user experiences.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="hobbies" class="min-h-screen bg-gray-50 py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="section mb-20">
+          <h2 class="text-3xl font-bold mb-12 text-center">Photography</h2>
+          <div class="relative overflow-hidden rounded-lg">
+            <img src="https://public.readdy.ai/ai/img_res/97049a4cb9017c9610644e3555752bcd.jpg"
+              class="w-full h-[600px] object-cover"
+              alt="Photography equipment">
+            <p class="mt-8 text-lg text-gray-600">Photography allows me to capture moments and tell stories through images. I particularly enjoy landscape and street photography, always looking for unique perspectives and lighting conditions.</p>
+          </div>
+        </div>
+        <div class="section">
+          <h2 class="text-3xl font-bold mb-12 text-center">Hiking</h2>
+          <div class="relative overflow-hidden rounded-lg">
+            <img src="https://public.readdy.ai/ai/img_res/28ae886f3b9cf0953bfb87e3271e1689.jpg"
+              class="w-full h-[600px] object-cover"
+              alt="Hiking scene">
+            <p class="mt-8 text-lg text-gray-600">Hiking helps me disconnect from technology and connect with nature. It's my way of finding inspiration and maintaining a healthy work-life balance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="development" class="min-h-screen py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold mb-12 text-center">Recent Projects</h2>
+        <div class="grid grid-cols-3 gap-8">
+          <div class="section bg-white p-8 rounded-xl shadow-lg card-hover">
+            <h3 class="text-xl font-bold mb-4">E-commerce Platform</h3>
+            <p class="text-gray-600 mb-4">A full-featured online shopping platform built with React and Node.js.</p>
+            <a href="#" class="text-primary hover:text-primary/80 transition-colors cursor-pointer">View Project →</a>
+          </div>
+          <div class="section bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <h3 class="text-xl font-bold mb-4">Task Management App</h3>
+            <p class="text-gray-600 mb-4">A collaborative task management tool with real-time updates.</p>
+            <a href="#" class="text-primary hover:text-primary/80 transition-colors cursor-pointer">View Project →</a>
+          </div>
+          <div class="section bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <h3 class="text-xl font-bold mb-4">Analytics Dashboard</h3>
+            <p class="text-gray-600 mb-4">Data visualization dashboard with interactive charts and reports.</p>
+            <a href="#" class="text-primary hover:text-primary/80 transition-colors cursor-pointer">View Project →</a>
+          </div>
+          <div class="section bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <h3 class="text-xl font-bold mb-4">Social Media Platform</h3>
+            <p class="text-gray-600 mb-4">A modern social networking app with real-time messaging and content sharing.</p>
+            <a href="#" class="text-primary hover:text-primary/80 transition-colors cursor-pointer">View Project →</a>
+          </div>
+          <div class="section bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <h3 class="text-xl font-bold mb-4">AI Image Generator</h3>
+            <p class="text-gray-600 mb-4">An AI-powered image generation tool using state-of-the-art machine learning models.</p>
+            <a href="#" class="text-primary hover:text-primary/80 transition-colors cursor-pointer">View Project →</a>
+          </div>
+          <div class="section bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <h3 class="text-xl font-bold mb-4">Fitness Tracking App</h3>
+            <p class="text-gray-600 mb-4">A comprehensive fitness tracking application with workout plans and progress monitoring.</p>
+            <a href="#" class="text-primary hover:text-primary/80 transition-colors cursor-pointer">View Project →</a>
+          </div>
+          <div class="section bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <h3 class="text-xl font-bold mb-4">Smart Home Control</h3>
+            <p class="text-gray-600 mb-4">IoT-based home automation system with mobile app control and energy monitoring features.</p>
+            <a href="#" class="text-primary hover:text-primary/80 transition-colors cursor-pointer">View Project →</a>
+          </div>
+          <div class="section bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <h3 class="text-xl font-bold mb-4">Educational Platform</h3>
+            <p class="text-gray-600 mb-4">Online learning platform with interactive courses, live sessions, and progress tracking.</p>
+            <a href="#" class="text-primary hover:text-primary/80 transition-colors cursor-pointer">View Project →</a>
+          </div>
+          <div class="section bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <h3 class="text-xl font-bold mb-4">Weather Forecast App</h3>
+            <p class="text-gray-600 mb-4">Real-time weather forecasting application with location-based alerts and detailed analytics.</p>
+            <a href="#" class="text-primary hover:text-primary/80 transition-colors cursor-pointer">View Project →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="languages" class="min-h-screen py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold mb-12 text-center">Programming Languages</h2>
+        <div class="grid grid-cols-3 gap-8">
+          <a href="https://html.spec.whatwg.org/" target="_blank" class="section">
+            <div class="bg-white p-8 rounded-xl shadow-lg card-hover flex items-center justify-center">
+              <div class="w-24 h-24 flex items-center justify-center">
+                <img src="https://public.readdy.ai/ai/img_res/682486b1eaf6e29e396f580ed6e754a3.jpg"
+                  class="w-full h-full object-contain" alt="HTML">
+              </div>
+            </div>
+          </a>
+          <a href="https://www.w3.org/Style/CSS/" target="_blank" class="section transform hover:scale-105 transition-transform duration-300">
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center">
+              <div class="w-24 h-24 flex items-center justify-center">
+                <img src="https://public.readdy.ai/ai/img_res/78fd6dee3d5c40eac9a04e647c044014.jpg"
+                  class="w-full h-full object-contain" alt="CSS">
+              </div>
+            </div>
+          </a>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" class="section transform hover:scale-105 transition-transform duration-300">
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center">
+              <div class="w-24 h-24 flex items-center justify-center">
+                <img src="https://public.readdy.ai/ai/img_res/f407351a35831a498edb95706a15227c.jpg"
+                  class="w-full h-full object-contain" alt="JavaScript">
+              </div>
+            </div>
+          </a>
+          <a href="https://www.python.org/" target="_blank" class="section transform hover:scale-105 transition-transform duration-300">
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center">
+              <div class="w-24 h-24 flex items-center justify-center">
+                <img src="https://public.readdy.ai/ai/img_res/d523b6feff9bf5cd5e9e7c1ff6e7329d.jpg"
+                  class="w-full h-full object-contain" alt="Python">
+              </div>
+            </div>
+          </a>
+          <a href="https://isocpp.org/" target="_blank" class="section transform hover:scale-105 transition-transform duration-300">
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center">
+              <div class="w-24 h-24 flex items-center justify-center">
+                <img src="https://public.readdy.ai/ai/img_res/5195321fd8fdac0c8d537a346e2862bd.jpg"
+                  class="w-full h-full object-contain" alt="C++">
+              </div>
+            </div>
+          </a>
+          <a href="https://dotnet.microsoft.com/languages/csharp" target="_blank" class="section transform hover:scale-105 transition-transform duration-300">
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center">
+              <div class="w-24 h-24 flex items-center justify-center">
+                <img src="https://public.readdy.ai/ai/img_res/4f9b175b2b1bf4543f4ea1e08c4da210.jpg"
+                  class="w-full h-full object-contain" alt="C#">
+              </div>
+            </div>
+          </a>
+          <a href="https://www.iso.org/standard/74528.html" target="_blank" class="section transform hover:scale-105 transition-transform duration-300">
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center">
+              <div class="w-24 h-24 flex items-center justify-center">
+                <img src="https://public.readdy.ai/ai/img_res/f919e19775e3f5d4d9b4083188c5404c.jpg"
+                  class="w-full h-full object-contain" alt="C">
+              </div>
+            </div>
+          </a>
+          <a href="https://www.php.net/" target="_blank" class="section transform hover:scale-105 transition-transform duration-300">
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center">
+              <div class="w-24 h-24 flex items-center justify-center">
+                <img src="https://public.readdy.ai/ai/img_res/cb01b5f76f89c551ed89083033aae0f1.jpg"
+                  class="w-full h-full object-contain" alt="PHP">
+              </div>
+            </div>
+          </a>
+          <a href="https://www.iso.org/standard/63555.html" target="_blank" class="section transform hover:scale-105 transition-transform duration-300">
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center">
+              <div class="w-24 h-24 flex items-center justify-center">
+                <img src="https://public.readdy.ai/ai/img_res/c89ba544bf0da41e9849f034e399bce0.jpg"
+                  class="w-full h-full object-contain" alt="SQL">
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="min-h-screen py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold mb-12 text-center">Connect With Me</h2>
+        <div class="grid grid-cols-3 gap-8">
+          <a href="https://instagram.com" target="_blank" class="section">
+            <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+              <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <i class="ri-instagram-fill text-4xl text-primary"></i>
+              </div>
+              <img src="https://public.readdy.ai/ai/img_res/6bd0671b22e6a2151e508195e3cc24ca.jpg"
+                class="w-full h-48 object-cover rounded-lg mb-4"
+                alt="Instagram">
+              <h3 class="text-xl font-bold text-center">Instagram</h3>
+            </div>
+          </a>
+          <a href="https://web.whatsapp.com" target="_blank" class="section transform hover:scale-105 transition-transform duration-300">
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+              <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <i class="ri-whatsapp-fill text-4xl text-primary"></i>
+              </div>
+              <img src="https://public.readdy.ai/ai/img_res/e7cde8a2eabe88fe8d2c4c14a652938b.jpg"
+                class="w-full h-48 object-cover rounded-lg mb-4"
+                alt="WhatsApp">
+              <h3 class="text-xl font-bold text-center">WhatsApp</h3>
+            </div>
+          </a>
+          <a href="https://telegram.org" target="_blank" class="section transform hover:scale-105 transition-transform duration-300">
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+              <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <i class="ri-telegram-fill text-4xl text-primary"></i>
+              </div>
+              <img src="https://public.readdy.ai/ai/img_res/512607ec0f10073274a377305ed63a22.jpg"
+                class="w-full h-48 object-cover rounded-lg mb-4"
+                alt="Telegram">
+              <h3 class="text-xl font-bold text-center">Telegram</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="scripts.js"></script>
+</body>
+</html>
