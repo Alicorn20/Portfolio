@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        .nav-link.active {
+            color: #57B5E7;
+        }
+
+        .section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: #57B5E7;
+            animation: fall linear forwards;
+            z-index: 1000;
+        }
+
+        .raindrop {
+            position: fixed;
+            top: -10px;
+            width: 2px;
+            height: 20px;
+            background: linear-gradient(transparent, #57B5E7);
+            animation: fall linear forwards;
+            z-index: 1000;
+        }
+
+        .flower {
+            position: fixed;
+            z-index: 1000;
+            animation: bloom 2s ease-out forwards;
+        }
+
+        .flower::before {
+            content: attr(data-emoji);
+            font-size: 48px;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        @keyframes bloom {
+            0% {
+                opacity: 0;
+                transform: scale(0) rotate(0deg);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2) rotate(180deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1) rotate(360deg) translateY(100px);
+            }
+        }
+
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1f2937;
+            --card-bg: #ffffff;
+            --nav-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #111827;
+            --text-color: #ffffff;
+            --card-bg: #1f2937;
+            --nav-bg: rgba(17, 24, 39, 0.9);
+            --gray-50: #1f2937;
+            --gray-600: #D1D5DB;
+            --gray-700: #F3F4F6;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .bg-white {
+            background-color: var(--card-bg);
+        }
+
+        nav {
+            background-color: var(--nav-bg);
+        }
+
+        [data-theme="dark"] .text-gray-600 {
+            color: var(--gray-600);
+        }
+
+        [data-theme="dark"] .text-gray-700 {
+            color: var(--gray-700);
+        }
+
+        [data-theme="dark"] .bg-gray-50 {
+            background-color: var(--gray-50);
+        }
+
+        [data-theme="dark"] .bg-white {
+            background-color: var(--card-bg);
+        }
+
+        [data-theme="dark"] .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+        }
+
+        [data-theme="dark"] .shadow-xl {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+        }
+
+        [data-theme="dark"] nav {
+            background-color: rgba(31, 41, 55, 0.9);
+        }
+
+        [data-theme="dark"] .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+        }
+
+        [data-theme="dark"] .shadow-xl {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        .language-image {
+            border-radius: 16px; /* Add more rounded corners */
+        }
+
+        .connect-block {
+            height: 100%; /* Ensure consistent height */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .connect-block img {
+            height: 200px; /* Standardize image height */
+            object-fit: cover;
+            border-radius: 12px; /* Keep rounded corners */
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#57B5E7',
+                        secondary: '#FF6B6B'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white min-h-screen">
+    <nav class="fixed w-full bg-white/80 backdrop-blur-md z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-4">
+                    <div class="font-['Pacifico'] text-2xl text-primary">
+                        <a href="#" class="cursor-pointer">Portfolio</a>
+                    </div>
+                    <button id="themeToggle"
+                        class="w-8 h-8 flex items-center justify-center text-gray-600 hover:text-primary transition-colors">
+                        <i class="ri-sun-line ri-lg"></i>
+                    </button>
+                    <button id="snowToggle"
+                        class="w-8 h-8 flex items-center justify-center text-gray-600 hover:text-primary transition-colors">
+                        <i class="ri-snowy-line ri-lg"></i>
+                    </button>
+                    <button id="rainToggle"
+                        class="w-8 h-8 flex items-center justify-center text-gray-600 hover:text-primary transition-colors">
+                        <i class="ri-rainy-line ri-lg"></i>
+                    </button>
+                    <button id="flowerToggle"
+                        class="w-8 h-8 flex items-center justify-center text-gray-600 hover:text-primary transition-colors">
+                        <i class="ri-flower-line ri-lg"></i>
+                    </button>
+                </div>
+                <div class="flex space-x-8">
+                    <a href="#home"
+                        class="nav-link cursor-pointer text-gray-700 hover:text-primary transition-colors">Home</a>
+                    <a href="#hobbies"
+                        class="nav-link cursor-pointer text-gray-700 hover:text-primary transition-colors">Hobbies</a>
+                    <a href="#development"
+                        class="nav-link cursor-pointer text-gray-700 hover:text-primary transition-colors">Development</a>
+                    <a href="#languages"
+                        class="nav-link cursor-pointer text-gray-700 hover:text-primary transition-colors">Languages</a>
+                    <a href="#contact"
+                        class="nav-link cursor-pointer text-gray-700 hover:text-primary transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="pt-16">
+        <section id="home" class="min-h-screen">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div class="section flex items-center mb-32">
+                    <div class="w-1/2 pr-12">
+                        <img src="https://images.unsplash.com/photo-1554497342-902a4f8da8ed?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            class="rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300"
+                            alt="Developer portrait">
+                    </div>
+                    <div class="w-1/2">
+                        <h1 class="text-4xl font-bold mb-6">Hello, I'm Francesco Salvadorini</h1>
+                        <p class="text-lg text-gray-600 mb-8">A passionate full-stack developer with like many years of
+                            experience in creating modern web applications and programs. I specialize in cybersecurity, pentesting, and webapp
+                            technologies.</p>
+                        <a href="#contact"
+                            class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-primary/90 transition-colors cursor-pointer inline-block">Get
+                            in touch</a>
+                    </div>
+                </div>
+                <div class="section flex items-center mb-32">
+                    <div class="w-1/2 pr-12">
+                        <h2 class="text-3xl font-bold mb-6">My Journey</h2>
+                        <p class="text-lg text-gray-600 mb-8">I started programming at the age of ten, driven by curiosity and a love for technology. Over the years, I honed my skills, exploring various programming languages and frameworks. This journey eventually led me to become a full-stack developer, combining my passion for coding with a deep interest in creating innovative and secure web applications.</p>
+                    </div>
+                    <div class="w-1/2">
+                        <img src="https://public.readdy.ai/ai/img_res/e896cf31d2d15cf1d62e451679e641c9.jpg"
+                            class="rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300"
+                            alt="Workspace">
+                    </div>
+                </div>
+                <div class="section flex items-center">
+                    <div class="w-1/2 pr-12">
+                        <img src="https://public.readdy.ai/ai/img_res/b150f2347cf0cc9bb732be1535b2724a.jpg"
+                            class="rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300"
+                            alt="Team collaboration">
+                    </div>
+                    <div class="w-1/2">
+                        <h2 class="text-3xl font-bold mb-6">What I Do</h2>
+                        <p class="text-lg text-gray-600 mb-8">I create projects for pentesting or simply web pages like this one! Additionally, I enjoy exploring innovative solutions to complex problems, whether it's developing secure applications, optimizing performance, or crafting user-friendly interfaces.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="hobbies" class="min-h-screen bg-gray-50 py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="section mb-20">
+                    <h2 class="text-3xl font-bold mb-12 text-center">Photography</h2>
+                    <div class="relative overflow-hidden rounded-lg">
+                        <img src="https://public.readdy.ai/ai/img_res/97049a4cb9017c9610644e3555752bcd.jpg"
+                            class="w-full h-[600px] object-cover" alt="Photography equipment">
+                        <p class="mt-8 text-lg text-gray-600">Photography allows me to capture moments and tell stories
+                            through images. I particularly enjoy landscape and street photography, always looking for
+                            unique perspectives and lighting conditions.</p>
+                    </div>
+                </div>
+                <div class="section">
+                    <h2 class="text-3xl font-bold mb-12 text-center">Hiking with Scouts</h2>
+                    <div class="relative overflow-hidden rounded-lg">
+                        <img src="https://public.readdy.ai/ai/img_res/28ae886f3b9cf0953bfb87e3271e1689.jpg"
+                            class="w-full h-[600px] object-cover" alt="Hiking scene">
+                        <p class="mt-8 text-lg text-gray-600">Hiking helps me disconnect from developing and connect
+                            with nature. It's my way of finding inspiration and maintaining a healthy work-life balance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="development" class="min-h-screen py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold mb-12 text-center">Recent Projects</h2>
+                <div class="grid grid-cols-3 gap-8">
+                    <div class="section bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-xl font-bold mb-4">Chess-Machine</h3>
+                        <p class="text-gray-600 mb-4">A simple project for a chess bot that you can play with in 3 different modes</p>
+                        <a href="https://github.com/Alicorn20/Chess-machine.git" class="text-primary hover:text-primary/80 transition-colors cursor-pointer">View Project →</a>
+                    </div>
+                    <div class="section bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-xl font-bold mb-4">Common User Password Profiler</h3>
+                        <p class="text-gray-600 mb-4">Cybersecurity project that generates a list of passwords for a personal break based on your information</p>
+                        <a href="https://github.com/Alicorn20/CUPP_V2.git" class="text-primary hover:text-primary/80 transition-colors cursor-pointer">View Project →</a>
+                    </div>
+                    <div class="section bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-xl font-bold mb-4">Portfolio</h3>
+                        <p class="text-gray-600 mb-4">Litterally this page</p>
+                        <a href="https://github.com/Alicorn20/Portfolio.git" class="text-primary hover:text-primary/80 transition-colors cursor-pointer">View Project →</a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 gap-8 mt-8">
+                    <div class="section bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-xl font-bold mb-4">Network Port Scanner</h3>
+                        <p class="text-gray-600 mb-4">Cybersecurity project similar to Wireshark, scan the domain traffic</p>
+                        <a href="https://github.com/Alicorn20/NetworkPortScanner.git" class="text-primary hover:text-primary/80 transition-colors cursor-pointer">View Project →</a>
+                    </div>
+                    <div class="section bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-xl font-bold mb-4">My Github Profile</h3>
+                        <p class="text-gray-600 mb-4">Here is where i post all my projects, i appreciate pull-requests</p>
+                        <a href="https://github.com/Alicorn20/" class="text-primary hover:text-primary/80 transition-colors cursor-pointer">View Project →</a>
+                    </div>
+                    <div class="section bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-xl font-bold mb-4">Fitness Tracking App</h3>
+                        <p class="text-gray-600 mb-4">In development project about a psicology AI with voice</p>
+                        <a href="https://github.com/Alicorn20/Calmy.git" class="text-primary hover:text-primary/80 transition-colors cursor-pointer">View Project →</a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 gap-8 mt-8">
+                    <div class="section bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-xl font-bold mb-4">Luigi Pizzeria</h3>
+                        <p class="text-gray-600 mb-4">Hipotetic project of a site for a Pizzeria</p>
+                        <a href="#" class="text-primary hover:text-primary/80 transition-colors cursor-pointer">View Project →</a>
+                    </div>
+                    <div class="section bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-xl font-bold mb-4">Pyddos</h3>
+                        <p class="text-gray-600 mb-4">Cybersecurity tool project for general ddos attacks</p>
+                        <a href="https://github.com/Alicorn20/pyddos.git" class="text-primary hover:text-primary/80 transition-colors cursor-pointer">View Project →</a>
+                    </div>
+                    <div class="section bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-xl font-bold mb-4">Ad Blocker</h3>
+                        <p class="text-gray-600 mb-4">Simple js adblocker that you can just paste into the console</p>
+                        <a href="https://github.com/Alicorn20/Ad_Blocker.git" class="text-primary hover:text-primary/80 transition-colors cursor-pointer">View Project →</a>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        <section id="languages" class="min-h-screen py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold mb-12 text-center">Programming Languages</h2>
+                <div class="grid grid-cols-3 gap-8">
+                    <a href="https://html.spec.whatwg.org/" target="_blank" class="section transform hover:scale-105 transition-transform duration-300">
+                        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center">
+                            <div class="w-24 h-24 flex items-center justify-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/480px-HTML5_logo_and_wordmark.svg.png"
+                                    class="language-image w-full h-full object-contain" alt="HTML">
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.w3.org/Style/CSS/" target="_blank" class="section transform hover:scale-105 transition-transform duration-300">
+                        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center">
+                            <div class="w-24 h-24 flex items-center justify-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png"
+                                    class="language-image w-full h-full object-contain" alt="CSS">
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"
+                    class="section transform hover:scale-105 transition-transform duration-300">
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center">
+                        <div class="w-24 h-24 flex items-center justify-center">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Javascript-shield.svg/1200px-Javascript-shield.svg.png"
+                                class="language-image w-full h-full object-contain" alt="JavaScript">
+                        </div>
+                    </div>
+                </a>
+                    <a href="https://www.python.org/" target="_blank"
+                        class="section transform hover:scale-105 transition-transform duration-300">
+                        <div
+                            class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center">
+                            <div class="w-24 h-24 flex items-center justify-center">
+                                <img src="https://cdn.iconscout.com/icon/free/png-256/free-python-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-vol-5-pack-logos-icons-2945099.png?f=webp&w=256"
+                                    class="language-image w-full h-full object-contain" alt="Python">
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://isocpp.org/" target="_blank"
+                        class="section transform hover:scale-105 transition-transform duration-300">
+                        <div
+                            class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center">
+                            <div class="w-24 h-24 flex items-center justify-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png"
+                                    class="language-image w-full h-full object-contain" alt="C++">
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://dotnet.microsoft.com/languages/csharp" target="_blank"
+                        class="section transform hover:scale-105 transition-transform duration-300">
+                        <div
+                            class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center">
+                            <div class="w-24 h-24 flex items-center justify-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Logo_C_sharp.svg/910px-Logo_C_sharp.svg.png"
+                                    class="language-image w-full h-full object-contain" alt="C#">
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.iso.org/standard/74528.html" target="_blank"
+                        class="section transform hover:scale-105 transition-transform duration-300">
+                        <div
+                            class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center">
+                            <div class="w-24 h-24 flex items-center justify-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Sql_data_base_with_logo.svg/2560px-Sql_data_base_with_logo.svg.png"
+                                    class="language-image w-full h-full object-contain" alt="C">
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.php.net/" target="_blank"
+                        class="section transform hover:scale-105 transition-transform duration-300">
+                        <div
+                            class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center">
+                            <div class="w-24 h-24 flex items-center justify-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/2560px-PHP-logo.svg.png"
+                                    class="language-image w-full h-full object-contain" alt="PHP">
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.iso.org/standard/63555.html" target="_blank"
+                        class="section transform hover:scale-105 transition-transform duration-300">
+                        <div
+                            class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center">
+                            <div class="w-24 h-24 flex items-center justify-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png"
+                                    class="language-image w-full h-full object-contain" alt="SQL">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="min-h-screen py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold mb-12 text-center">Connect With Me</h2>
+                <div class="grid grid-cols-3 gap-8">
+                    <a href="https://www.instagram.com/a.fucking.salad" target="_blank" class="section transform hover:scale-105 transition-transform duration-300">
+                        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow connect-block">
+                            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                <i class="ri-instagram-fill text-4xl text-primary"></i>
+                            </div>
+                            <img src="https://public.readdy.ai/ai/img_res/6bd0671b22e6a2151e508195e3cc24ca.jpg" alt="Instagram">
+                            <h3 class="text-xl font-bold text-center mt-4">Instagram</h3>
+                        </div>
+                    </a>
+                    <a href="https://wa.me/+393501860448" target="_blank" class="section transform hover:scale-105 transition-transform duration-300">
+                        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow connect-block">
+                            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                <i class="ri-whatsapp-fill text-4xl text-primary"></i>
+                            </div>
+                            <img src="https://public.readdy.ai/ai/img_res/e7cde8a2eabe88fe8d2c4c14a652938b.jpg" alt="WhatsApp">
+                            <h3 class="text-xl font-bold text-center mt-4">WhatsApp</h3>
+                        </div>
+                    </a>
+                    <a href="https://telegram.org" target="_blank" class="section transform hover:scale-105 transition-transform duration-300">
+                        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow connect-block">
+                            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                <i class="ri-telegram-fill text-4xl text-primary"></i>
+                            </div>
+                            <img src="https://public.readdy.ai/ai/img_res/512607ec0f10073274a377305ed63a22.jpg" alt="Telegram">
+                            <h3 class="text-xl font-bold text-center mt-4">Telegram</h3>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="mt-12">
+                    <a href="https://linktr.ee/a.fucking.salad" target="_blank" class="block transform hover:scale-105 transition-transform duration-300">
+                        <div class="bg-primary text-white p-6 rounded-xl shadow-lg hover:shadow-xl flex items-center justify-center">
+                            <h3 class="text-2xl font-bold text-center">Visit My Linktree</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = themeToggle.querySelector('i');
+            const snowToggle = document.getElementById('snowToggle');
+            let snowInterval;
+            let rainInterval;
+
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = Math.random() * window.innerWidth + 'px';
+                snowflake.style.opacity = Math.random();
+                snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                document.body.appendChild(snowflake);
+                setTimeout(() => {
+                    snowflake.remove();
+                }, 5000);
+            }
+
+            function createRaindrop() {
+                const raindrop = document.createElement('div');
+                raindrop.classList.add('raindrop');
+                raindrop.style.left = Math.random() * window.innerWidth + 'px';
+                raindrop.style.opacity = Math.random() * 0.4 + 0.4;
+                raindrop.style.animationDuration = (Math.random() * 1 + 0.5) + 's';
+                raindrop.style.transform = `rotate(${Math.random() * 10 + 15}deg)`;
+                document.body.appendChild(raindrop);
+                setTimeout(() => {
+                    raindrop.remove();
+                }, 2000);
+            }
+            snowToggle.addEventListener('click', () => {
+                if (snowInterval) {
+                    clearInterval(snowInterval);
+                    snowInterval = null;
+                    return;
+                }
+                snowInterval = setInterval(createSnowflake, 50);
+                setTimeout(() => {
+                    clearInterval(snowInterval);
+                    snowInterval = null;
+                }, 10000);
+            });
+            const rainToggle = document.getElementById('rainToggle');
+            rainToggle.addEventListener('click', () => {
+                if (rainInterval) {
+                    clearInterval(rainInterval);
+                    rainInterval = null;
+                    return;
+                }
+                rainInterval = setInterval(createRaindrop, 20);
+                setTimeout(() => {
+                    clearInterval(rainInterval);
+                    rainInterval = null;
+                }, 10000);
+            });
+            let flowerInterval;
+
+            function createFlower() {
+                const flower = document.createElement('div');
+                flower.classList.add('flower');
+                flower.style.left = Math.random() * window.innerWidth + 'px';
+                flower.style.top = Math.random() * window.innerHeight + 'px';
+                const flowers = ['🌸', '🌺', '🌹', '🌷', '🌻', '🌼', '💐', '🌿'];
+                flower.setAttribute('data-emoji', flowers[Math.floor(Math.random() * flowers.length)]);
+                document.body.appendChild(flower);
+                setTimeout(() => {
+                    flower.remove();
+                }, 2000);
+            }
+            const flowerToggle = document.getElementById('flowerToggle');
+            flowerToggle.addEventListener('click', () => {
+                if (flowerInterval) {
+                    clearInterval(flowerInterval);
+                    flowerInterval = null;
+                    return;
+                }
+                flowerInterval = setInterval(createFlower, 200);
+                setTimeout(() => {
+                    clearInterval(flowerInterval);
+                    flowerInterval = null;
+                }, 5000);
+            });
+
+            function setTheme(isDark) {
+                document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+                themeIcon.className = isDark ? 'ri-moon-line ri-lg' : 'ri-sun-line ri-lg';
+            }
+            themeToggle.addEventListener('click', () => {
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                setTheme(!isDark);
+            });
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            setTheme(prefersDark);
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            sections.forEach(section => observer.observe(section));
+
+            function updateActiveLink() {
+                const fromTop = window.scrollY;
+                document.querySelectorAll('section').forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    if (fromTop >= sectionTop && fromTop <= sectionBottom) {
+                        const id = section.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+            window.addEventListener('scroll', updateActiveLink);
+            updateActiveLink();
+        });
+    </script>
+</body>
+
+</html>
