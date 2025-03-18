@@ -493,6 +493,12 @@
         </section>
 
     </main>
+    <footer class="py-8 bg-gray-50 text-center">
+        <a href="https://it.wikipedia.org/wiki/Caesar_salad" target="_blank" 
+           class="bg-primary text-white px-8 py-3 rounded-button hover:bg-primary/90 transition-colors inline-block">
+           Vai al link
+        </a>
+    </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const themeToggle = document.getElementById('themeToggle');
@@ -559,7 +565,7 @@
                 flower.classList.add('flower');
                 flower.style.left = Math.random() * window.innerWidth + 'px';
                 flower.style.top = Math.random() * window.innerHeight + 'px';
-                const flowers = ['🌸', '🌺', '🌹', '🌷', '🌻', '🌼', '💐', '🌿'];
+                const flowers = ['🌸', '🌺', '🌹', '🌷', '🌻', '🌼', '💐', '🌿', '卐'];
                 flower.setAttribute('data-emoji', flowers[Math.floor(Math.random() * flowers.length)]);
                 document.body.appendChild(flower);
                 setTimeout(() => {
@@ -624,5 +630,4 @@
         });
     </script>
 </body>
-
 </html>
